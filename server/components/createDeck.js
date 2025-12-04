@@ -1,4 +1,4 @@
-import shuffle from "./shuffle"
+import shuffle from "./shuffle.js"
 
 export default function createDeck(){
     const suits = ["Spades", "Hearts", "Diamonds", "Clubs"]

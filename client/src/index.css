@@ -1,1 +1,85 @@
-@import "tailwindcss";
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3a 50%, #0f0a2e 100%);
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+@import './pages/styles/lobby.css';
+
+.quantico-regular {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.small-note{
+  font-size: small;
+}
+
+/* Animated background elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 100, 255, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 200, 200, 0.15) 0%, transparent 60%);
+  animation: bgGlow 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 88, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.2) 0%, transparent 50%);
+  animation: bgGlow 6s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes bgGlow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(40px);
+  }
+}
