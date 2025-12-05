@@ -138,4 +138,11 @@ export default function roomHandlers(io, socket){
 
         io.to(roomId).emit('playerList', list)
     })
+
+    socket.on('disconnect', (reason) => {
+        console.warn('Socket disconnected: ', reason)
+        if (reason === 'io server disconnect'){
+            socket.connect()
+        }
+    })
 }
