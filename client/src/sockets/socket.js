@@ -10,6 +10,7 @@ export const socket = window.__SINGLETON_SOCKET
 
 socket.on('connect', () => {
     console.log('socket connected:', socket.id)
+    console.log(URL)
 })
 
 socket.on('connect_error', (err) => {
