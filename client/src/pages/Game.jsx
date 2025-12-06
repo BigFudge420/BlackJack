@@ -4,6 +4,8 @@ import {  socket } from "../sockets/socket";
 import PlayerHand from "../components/PlayerHand";
 import DealerHand from "../components/DealerHand";
 import Controls from "../components/Controls";
+import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
+import { FaClipboard } from "react-icons/fa";
 import "./styles/game.css";
 
 export default function Game({roomId, players, setRoomId, setPlayers}) {
@@ -13,6 +15,7 @@ export default function Game({roomId, players, setRoomId, setPlayers}) {
     const [blackjack, setBlackjack] = useState(false)
     const [busted, setBusted] = useState(false)
     const [dealer, setDealer] = useState(null)
+    const [isCopied, copy] = useCopyToClipboard()
 
 
     useEffect(() => {
@@ -97,7 +100,10 @@ export default function Game({roomId, players, setRoomId, setPlayers}) {
         <div className="game-container">
             <div className="game-header">
                 <h1>◆ BLACKJACK ◆</h1>
-                <div className="room-id">Room ID: {roomId}</div>
+                <div className="room-id-container">
+                    <div className="room-id">Room ID: {roomId}</div>
+                    <button className ='copy-btn' onClick={() => copy(roomId)}><FaClipboard/></button>
+                </div>
             </div>
 
             <div className={`game-content ${gameState === 'playing' ? 'playing' : ''}`}>
